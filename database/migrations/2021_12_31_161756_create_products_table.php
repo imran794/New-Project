@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('product_unit');
             $table->string('product_unit_price');
             $table->string('product_sell_qty')->default(0);
-            $table->string('total');
+            $table->string('total')->nullable();
             $table->enum('deleted',['yes','no'])->default('no');
             $table->enum('status',['Active','Inactive'])->default('Active');
             $table->bigInteger('created_by');

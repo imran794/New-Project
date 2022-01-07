@@ -106,8 +106,6 @@ class ProductController extends Controller
             'brand_id'              => 'required',
             'product_unit'          => 'required',
             'product_unit_price'    => 'required',
-            'product_sell_qty'      => 'required',
-            'total'      => 'required',
         ]);
 
         $product->product_name         = $request->product_name;
@@ -115,7 +113,6 @@ class ProductController extends Controller
         $product->brand_id             = $request->brand_id;
         $product->product_unit         = $request->product_unit;
         $product->product_unit_price   = $request->product_unit_price;
-        $product->product_sell_qty     = $request->product_sell_qty;
         $product->total                = $request->total;
         $product->updated_by           = Auth::id();
         $product->updated_date         = carbon::now();
@@ -140,7 +137,7 @@ class ProductController extends Controller
             $product->save();
 
 
-      Toastr::success('Brand Deleted :)' ,'Success');
+      Toastr::success('Product Deleted :)' ,'Success');
        return redirect()->route('admin.product.index');
     }
 }

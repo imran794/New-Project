@@ -73,13 +73,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group form-float">
-                            <label class="form-label">Credit Limi</label>
-                            <div class="form-line">
-                                <input type="number" id="credit_limit" class="form-control" name="party_credit_limit" placeholder="Credit Limit">
-                            </div>
-                        </div>
-
                         <a class="btn btn-danger m-t-15 waves-effect" href="{{ route('admin.party.index') }}">BACK</a>
                         <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
 

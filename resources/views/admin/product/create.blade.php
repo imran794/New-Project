@@ -37,7 +37,7 @@
                          <div class="form-group form-float">
                             <label class="form-label">Product Stock</label>
                             <div class="form-line">
-                                <input type="text" id="product_stock" class="form-control" name="product_stock" placeholder="Product Stock" value="{{ $product->product_stock ?? old('product_stock') }}">
+                                <input type="number" id="product_stock" class="form-control" name="product_stock" placeholder="Product Stock" value="{{ $product->product_stock ?? old('product_stock') }}">
                             </div>
                         </div> 
                     </div>
@@ -68,19 +68,19 @@
                            <div class="form-group form-float">
                             <label class="form-label">Product Unit Price</label>
                             <div class="form-line">
-                                <input type="number" id="code" class="form-control" name="product_unit_price" placeholder="Product Unit Price" value="{{ $product->product_unit_price ?? old('product_unit_price') }}">
+                                <input type="number" id="product_unit_price" class="form-control" name="product_unit_price" placeholder="Product Unit Price" value="{{ $product->product_unit_price ?? old('product_unit_price') }}">
                             </div>
                         </div>  
 
-                           <div class="form-group form-float">
+                           <div class="form-group form-float" style="display: none;">
                             <label class="form-label">Total</label>
                             <div class="form-line">
-                                <input type="number" id="total" class="form-control" name="product_unit_price" placeholder="Product Unit Price" value="{{ $product->product_unit_price ?? old('product_unit_price') }}">
+                                <input type="number" id="total" class="form-control" name="total" placeholder="total" value="{{ $product->total ?? old('total') }}">
                             </div>
                         </div>  
 
                         <a class="btn btn-danger m-t-15 waves-effect" href="{{ route('admin.product.index') }}">BACK</a>
-                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">
+                        <button type="submit" onclick="getTotalAmount()" class="btn btn-primary m-t-15 waves-effect">
                             @isset($product)
                                 Update
                                 @else
@@ -100,20 +100,23 @@
 <!-- Select Plugin Js -->
 <script src="{{ asset('assets/dashboard/plugins/bootstrap-select/js/bootstrap-select.js') }}"></script>
 
-
-
-
+<script src="{{ asset('assets/dashboard/plugins/jquery/jquery.min.js') }}"></script>
 <script>
+
+    function getTotalAmount() {
+        let product_stock       = $('#product_stock').val();
+        let product_unit_price  = $('#product_unit_price').val();
+        let total = product_stock * product_unit_price;
+        console.log(total)
+
      
-     var total = 0;
-     var product_stock = $('#product_stock').val();
-     var product_unit_price = $('#product_unit_price').val();
-     var total = product_stock * product_unit_price;
-     $('#total').val(total);
-     console.log(total);
 
+        $('#total').val(total);
 
-        
+    }
+
+    getTotalAmount()
+    
 </script>
 
 
